@@ -1,0 +1,19 @@
+# Take input
+n = int(input("Enter number: "))
+
+# Convert to binary (remove '0b')
+binary = bin(n)[2:]
+
+# Find position of rightmost set bit
+position = 1
+temp = n
+
+while temp > 0:
+    if temp & 1:
+        break
+    temp >>= 1
+    position += 1
+
+# Output
+print(f"({binary})")
+print("Position of the first set bit:", position)
