@@ -1,0 +1,27 @@
+def longest_consecutive_ones(n):
+    if n < 0:
+        print("Please enter a non-negative integer.")
+        return
+
+    binary = bin(n)[2:]
+    max_len = 0
+    cur_len = 0
+
+    for bit in binary:
+        if bit == '1':
+            cur_len += 1
+            if cur_len > max_len:
+                max_len = cur_len
+        else:
+            cur_len = 0
+
+    print(f"\nDecimal : {n}")
+    print(f"Binary  : {binary}")
+    print(f"Longest consecutive 1's: {max_len}")
+
+
+try:
+    number = int(input("Enter a decimal number: "))
+    longest_consecutive_ones(number)
+except ValueError:
+    print("Invalid input. Please enter a whole number.")
